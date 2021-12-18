@@ -1,0 +1,9 @@
+# Use our custom-configured c++ toolchain.
+
+build:clang_config --crosstool_top=//toolchain:clang_suite
+build:generic_clang --cxxopt=-std=c++14 --host_cxxopt=-std=c++14
+#build:generic_clang --copt=-Werror --host_copt=-Wno-unused-parameter
+
+build:generic_clang1 --copt=-Wno-unused-parameter --host_copt=-Wno-unused-parameter
+build --spawn_strategy=sandboxed
+--platforms=//main2:linux_x86
